@@ -14,10 +14,14 @@ const mediaItem = ref<MediaItem | null>(null)
 const loading = ref(true)
 const error = ref<string | null>(null)
 
+const rawUrl = (import.meta.env.VITE_API_URL as string | undefined) || 'http://localhost:8080'
+const BASE_URL = rawUrl.startsWith('http') ? rawUrl : `http://${rawUrl}`
+
 const streamUrl = computed(() => {
   if (!mediaItem.value) return ''
   // Build streaming URL - backend serves media at /media/{path}
-  return `http://localhost:8080/media/${mediaItem.value.path}`
+  const normalizedPath = mediaItem.value.path.replace(/^\/+/, '')
+  return `${BASE_URL}/media/${normalizedPath}`
 })
 
 onMounted(async () => {

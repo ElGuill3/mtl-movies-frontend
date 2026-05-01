@@ -1,11 +1,25 @@
-import axios from 'axios'
 import type { MediaItem, Genre, MediaApiParams } from '../types/media'
 
-// Axios instance configured with base URL for backend
-export const mediaApi = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8080',
-  timeout: 10000,
-})
+const rawUrl = (import.meta.env.VITE_API_URL as string | undefined) || 'http://localhost:8080'
+const BASE_URL = rawUrl.startsWith('http') ? rawUrl : `http://${rawUrl}`
+
+async function request<T>(path: string, params?: Record<string, string>): Promise<T> {
+  const fullUrl = `${BASE_URL}${path}`
+  const url = new URL(fullUrl)
+  if (params) {
+    Object.entries(params).forEach(([k, v]) => url.searchParams.append(k, v))
+  }
+
+  const response = await fetch(url.toString(), {
+    headers: { 'Content-Type': 'application/json' },
+  })
+
+  if (!response.ok) {
+    throw new Error(`HTTP ${response.status}: ${response.statusText}`)
+  }
+
+  return response.json()
+}
 
 export async function getMedia(
   type?: MediaApiParams['type'],
@@ -15,29 +29,23 @@ export async function getMedia(
   if (type) params.type = type
   if (search) params.search = search
 
-  const response = await mediaApi.get<{ data: MediaItem[] }>('/api/media', { params })
-  return response.data.data
+  const data = await request<{ data: MediaItem[] }>('/api/media', params)
+  return data.data
 }
 
 export async function getMediaById(id: number): Promise<MediaItem> {
   try {
-    const response = await mediaApi.get<{ data: MediaItem }>(`/api/media/${id}`)
-    return response.data.data
-  } catch (error: unknown) {
-    if (
-      typeof error === 'object' &&
-      error !== null &&
-      'response' in error &&
-      (error as { response: { status: number } }).response?.status === 404
-    ) {
+    const data = await request<{ data: MediaItem }>(`/api/media/${id}`)
+    return data.data
+  } catch (err) {
+    if (err instanceof TypeError && (err as unknown as { message: string }).message.includes('404')) {
       throw new Error('Media not found')
     }
-    throw error
+    throw err
   }
 }
 
 export async function getGenres(): Promise<Genre[]> {
-  // Fetch all media and extract unique genres from genres field
   const items = await getMedia()
 
   const genreSet = new Set<string>()
@@ -48,7 +56,6 @@ export async function getGenres(): Promise<Genre[]> {
     }
   }
 
-  // Map to Genre[] with numeric ids derived from sorted names
   return Array.from(genreSet)
     .sort()
     .map((name, index) => ({ id: index + 1, name }))
