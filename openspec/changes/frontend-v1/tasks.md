@@ -37,9 +37,9 @@
 
 ## Phase 3: Composables
 
-- [ ] 3.1 RED: Write `useMediaApi.test.ts` — fetches media, loading state, error handling
-- [ ] 3.2 GREEN: Create `src/composables/useMediaApi.ts` — fetches movies/series/anime by type with loading/error state
-- [ ] 3.3 GREEN: Create `src/composables/usePlayer.ts` — playing, currentTime, duration, volume, muted state
+- [x] 3.1 RED: Write `useMediaApi.test.ts` — fetches media, loading state, error handling
+- [x] 3.2 GREEN: Create `src/composables/useMediaApi.ts` — fetches movies/series/anime by type with loading/error state
+- [x] 3.3 GREEN: Create `src/composables/usePlayer.ts` — playing, currentTime, duration, volume, muted state
 
 ## Phase 4: Views
 
