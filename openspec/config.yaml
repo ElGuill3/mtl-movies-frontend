@@ -2,11 +2,11 @@ schema: spec-driven
 
 context: |
   Tech stack: Vue 3 + TypeScript + Vite + Tauri 2.x (Rust backend)
-  Architecture: SPA desktop app with Chi router backend
-  Testing: vitest (not yet configured), vue-tsc for type checking
-  Style: TBD (ESLint + Prettier to be configured)
+  Architecture: SPA desktop app with Chi router backend (:8080)
+  Testing: vitest + @vue/test-utils + jsdom configured
+  Style: ESLint + Prettier + EditorConfig configured
 
-strict_tdd: false
+strict_tdd: true
 
 rules:
   proposal:
@@ -34,15 +34,15 @@ rules:
 testing:
   runner:
     command: "npm run test"
-    framework: "vitest (not configured)"
+    framework: "vitest"
   layers:
     unit: available
     integration: not_installed
     e2e: not_installed
   coverage:
-    available: false
-    command: "—"
+    available: true
+    command: "vitest run --coverage"
   quality:
-    linter: not_configured
+    linter: eslint
     type_checker: vue-tsc
-    formatter: not_configured
+    formatter: prettier

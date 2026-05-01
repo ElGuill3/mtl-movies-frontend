@@ -35,6 +35,8 @@
 
 ## Conventions
 
-- TBD: ESLint + Prettier not yet configured
-- TypeScript strict mode via vue-tsc
+- **Linting**: ESLint with vue-eslint-parser + @typescript-eslint
+- **Formatting**: Prettier with vueIndentScriptAndStyle: false
+- **Type checking**: vue-tsc
+- **Testing**: Vitest + @vue/test-utils + jsdom
 - Components: PascalCase, composables: camelCase prefixed with `use`
