@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 import { usePlayer, formatTime } from '../composables/usePlayer'
 
 const props = defineProps<{
@@ -21,7 +21,6 @@ const {
   pause,
   seek,
   setVolume,
-  toggleMute,
   toggleFullscreen,
   setupKeyboardShortcuts,
 } = usePlayer()
@@ -95,7 +94,7 @@ const retry = () => {
           @input="onSeek"
         />
         <span class="video-player__time">
-          {{ formatTime(currentTime) }} / {{ formatTime(duration) }}
+          {{ formatTime(currentTime ?? 0) }} / {{ formatTime(duration ?? 0) }}
         </span>
       </div>
 

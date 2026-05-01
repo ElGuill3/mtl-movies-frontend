@@ -60,9 +60,10 @@ const goBack = () => {
 
 // Filter items by selected genre if needed
 const filteredItems = computed(() => {
-  if (!selectedGenre.value) return items.value
+  const allItems = items.value ?? []
+  if (!selectedGenre.value) return allItems
 
-  return items.value.filter((item) => {
+  return allItems.filter((item) => {
     if (!item.genres) return false
     return item.genres.toLowerCase().includes(selectedGenre.value!.toLowerCase())
   })

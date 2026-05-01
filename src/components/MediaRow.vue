@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import MediaCard from './MediaCard.vue'
 import SkeletonCard from './SkeletonCard.vue'
 import type { MediaItem } from '../types/media'
@@ -12,7 +12,6 @@ defineProps<{
 }>()
 
 const router = useRouter()
-const route = useRoute()
 
 const viewAll = (type: string) => {
   router.push(`/section/${type}`)

@@ -1,8 +1,6 @@
 import { ref } from 'vue'
 
-type AnyFunction = (...args: unknown[]) => unknown
-
-export function useDebounce<T extends AnyFunction>(
+export function useDebounce<T extends (...args: any[]) => any>(
   fn: T,
   delay: number
 ): (...args: Parameters<T>) => void {

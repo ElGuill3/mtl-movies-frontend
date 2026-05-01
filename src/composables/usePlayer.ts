@@ -1,14 +1,14 @@
-import { ref } from 'vue'
+import { ref, type Ref } from 'vue'
 
 export interface PlayerState {
-  playing: ReturnType<typeof ref<boolean>>
-  currentTime: ReturnType<typeof ref<number>>
-  duration: ReturnType<typeof ref<number>>
-  volume: ReturnType<typeof ref<number>>
-  muted: ReturnType<typeof ref<boolean>>
-  isFullscreen: ReturnType<typeof ref<boolean>>
-  isBuffering: ReturnType<typeof ref<boolean>>
-  error: ReturnType<typeof ref<string | null>>
+  playing: Ref<boolean>
+  currentTime: Ref<number>
+  duration: Ref<number>
+  volume: Ref<number>
+  muted: Ref<boolean>
+  isFullscreen: Ref<boolean>
+  isBuffering: Ref<boolean>
+  error: Ref<string | null>
   play: () => void
   pause: () => void
   seek: (time: number) => void
@@ -16,6 +16,7 @@ export interface PlayerState {
   toggleMute: () => void
   toggleFullscreen: () => void
   setupKeyboardShortcuts: (videoElement: HTMLElement) => void
+  bindVideo: (el: HTMLVideoElement) => void
 }
 
 export function usePlayer(): PlayerState {
@@ -28,7 +29,7 @@ export function usePlayer(): PlayerState {
   const isBuffering = ref(false)
   const error = ref<string | null>(null)
 
-  // Internal video element reference
+  // Video element - set via bindVideo()
   let videoEl: HTMLVideoElement | null = null
 
   const play = () => {
@@ -107,6 +108,43 @@ export function usePlayer(): PlayerState {
     })
   }
 
+  const bindVideo = (el: HTMLVideoElement) => {
+    videoEl = el
+
+    el.addEventListener('loadedmetadata', () => {
+      duration.value = el.duration
+    })
+
+    el.addEventListener('timeupdate', () => {
+      currentTime.value = el.currentTime
+    })
+
+    el.addEventListener('play', () => {
+      playing.value = true
+    })
+
+    el.addEventListener('pause', () => {
+      playing.value = false
+    })
+
+    el.addEventListener('volumechange', () => {
+      volume.value = el.volume
+      muted.value = el.muted
+    })
+
+    el.addEventListener('waiting', () => {
+      isBuffering.value = true
+    })
+
+    el.addEventListener('canplay', () => {
+      isBuffering.value = false
+    })
+
+    el.addEventListener('error', () => {
+      error.value = 'Failed to load video. Check your connection and try again.'
+    })
+  }
+
   return {
     playing,
     currentTime,
@@ -123,6 +161,7 @@ export function usePlayer(): PlayerState {
     toggleMute,
     toggleFullscreen,
     setupKeyboardShortcuts,
+    bindVideo,
   }
 }
 

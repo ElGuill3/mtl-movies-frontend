@@ -2,12 +2,16 @@
 import { onMounted } from 'vue'
 import { useMediaApi } from '../composables/useMediaApi'
 import MediaRow from '../components/MediaRow.vue'
+import type { MediaItem } from '../types/media'
 
 const { movies, series, anime, loading, error, fetchAll } = useMediaApi()
 
 onMounted(() => {
   fetchAll()
 })
+
+// Helper to get value or empty array
+const getItems = (items: MediaItem[] | undefined): MediaItem[] => items ?? []
 </script>
 
 <template>
@@ -22,19 +26,19 @@ onMounted(() => {
       <MediaRow
         title="Movies"
         type="movie"
-        :items="movies"
+        :items="getItems(movies)"
         :loading="loading"
       />
       <MediaRow
         title="Series"
         type="series"
-        :items="series"
+        :items="getItems(series)"
         :loading="loading"
       />
       <MediaRow
         title="Anime"
         type="anime"
-        :items="anime"
+        :items="getItems(anime)"
         :loading="loading"
       />
     </div>

@@ -1,8 +1,7 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 
 describe('useDebounce', () => {
   it('is a function that returns a debounced version of the given function', async () => {
-    // Simple test: the composable exports a function
     const { useDebounce } = await import('../composables/useDebounce')
 
     let callCount = 0
@@ -17,7 +16,7 @@ describe('useDebounce', () => {
     expect(callCount).toBe(0)
 
     // Call first time
-    debouncedFn('arg1')
+    debouncedFn()
     expect(callCount).toBe(0) // still 0 because of debounce
 
     // Wait and check

@@ -3,29 +3,19 @@ import { mount } from '@vue/test-utils'
 import { createRouter, createWebHashHistory } from 'vue-router'
 import SectionView from './SectionView.vue'
 
-// Helper to create router with mocked route
-const createRouterWithRoute = (type: string) => {
-  return createRouter({
-    history: createWebHashHistory(),
-    routes: [
-      {
-        path: `/section/${type}`,
-        component: SectionView,
-        props: true,
-      },
-      { path: '/', component: { template: '<div>Home</div>' } },
-    ],
-  })
-}
+// Create router outside tests
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes: [{ path: '/', component: {} }],
+})
 
 describe('SectionView', () => {
   describe('rendering', () => {
-    it('renders section title based on route params', () => {
-      const router = createRouterWithRoute('movie')
+    it('renders section title based on props', () => {
       const wrapper = mount(SectionView, {
         props: { type: 'movie' },
         global: {
-          router,
+          plugins: [router],
         },
       })
 
@@ -33,11 +23,10 @@ describe('SectionView', () => {
     })
 
     it('renders back button', () => {
-      const router = createRouterWithRoute('movie')
       const wrapper = mount(SectionView, {
         props: { type: 'movie' },
         global: {
-          router,
+          plugins: [router],
         },
       })
 
@@ -45,11 +34,10 @@ describe('SectionView', () => {
     })
 
     it('renders search bar', () => {
-      const router = createRouterWithRoute('movie')
       const wrapper = mount(SectionView, {
         props: { type: 'movie' },
         global: {
-          router,
+          plugins: [router],
         },
       })
 
@@ -57,11 +45,10 @@ describe('SectionView', () => {
     })
 
     it('renders genre filter', () => {
-      const router = createRouterWithRoute('movie')
       const wrapper = mount(SectionView, {
         props: { type: 'movie' },
         global: {
-          router,
+          plugins: [router],
         },
       })
 
