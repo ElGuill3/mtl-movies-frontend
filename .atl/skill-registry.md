@@ -8,8 +8,8 @@
 
 | Skill | Description | Trigger |
 |-------|-------------|---------|
-| `sdd-propose` | Create change proposals with intent, scope, approach | When creating new features/changes |
-| `sdd-spec` | Write detailed specifications with requirements/scenarios | When specs need to be written |
+| `sdd-propose` | Create change proposals | When creating new features/changes |
+| `sdd-spec` | Write detailed specifications | When specs need to be written |
 | `sdd-design` | Create technical design documents | When technical approach needs to be defined |
 | `sdd-tasks` | Break down specs into implementation tasks | When tasks need to be created |
 | `sdd-apply` | Implement code from task definitions | When implementing tasks |
@@ -17,7 +17,6 @@
 | `sdd-archive` | Sync specs and archive completed changes | When archiving a completed change |
 | `sdd-explore` | Explore codebase and investigate ideas | When investigating or clarifying requirements |
 | `sdd-onboard` | Guided SDD workflow walkthrough | When onboarding to SDD |
-| `go-testing` | Go testing patterns | When writing Go tests (backend) |
 
 ## Project Stack
 
@@ -32,6 +31,15 @@
 - Pinia for state management (future)
 - Axios for API calls to backend
 - Video.js for media playback
+
+## Specs (frontend-v1)
+
+| Spec | Description |
+|------|-------------|
+| `media-catalog-view` | Grid display of media items in 3 sections |
+| `media-player` | Full-screen video playback with controls |
+| `media-search` | Title search + genre filter |
+| `app-navigation` | Vue Router routes and navigation |
 
 ## Conventions
 
