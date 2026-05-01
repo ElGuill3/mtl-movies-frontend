@@ -2,10 +2,10 @@
 
 ## Phase 1: Foundation
 
-- [ ] 1.1 Create `src/types/media.ts` — TypeScript interfaces MediaItem, Genre, ApiResponse
-- [ ] 1.2 Create `src/api/mediaApi.ts` — axios instance + getMedia(type?), getMediaById(id), getGenres()
-- [ ] 1.3 Create `src/composables/useDebounce.ts` — generic debounce utility with tests
-- [ ] 1.4 Install video.js and @types/video.js if not already present
+- [x] 1.1 Create `src/types/media.ts` — TypeScript interfaces MediaItem, Genre, ApiResponse
+- [x] 1.2 Create `src/api/mediaApi.ts` — axios instance + getMedia(type?), getMediaById(id), getGenres()
+- [x] 1.3 Create `src/composables/useDebounce.ts` — generic debounce utility with tests
+- [x] 1.4 Install video.js and @types/video.js if not already present
 
 ## Phase 2: Core Components (TDD)
 
