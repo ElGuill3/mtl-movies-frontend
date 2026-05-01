@@ -28,7 +28,7 @@ jobs:
           cache: 'npm'
 
       - name: Setup Rust
-        uses: dtolnay/rust-action@stable
+        uses: dtolnay/rustup@stable
         with:
           targets: ${{ matrix.rust_target }}
 
