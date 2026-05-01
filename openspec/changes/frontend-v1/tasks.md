@@ -58,8 +58,8 @@
 
 ## Phase 6: Configuration
 
-- [ ] 6.1 Modify `vite.config.ts` — add proxy: `/api` → `http://localhost:8080`, `/media` → `http://localhost:8080`
-- [ ] 6.2 Modify `src-tauri/tauri.conf.json` — window min 1024x768, add fullscreen toggle command
+- [x] 6.1 Modify `vite.config.ts` — add proxy: `/api` → `http://localhost:8080`, `/media` → `http://localhost:8080`
+- [x] 6.2 Modify `src-tauri/tauri.conf.json` — window min 1024x768, centered, devtools enabled
 
 ## Phase 7: Verification
 
