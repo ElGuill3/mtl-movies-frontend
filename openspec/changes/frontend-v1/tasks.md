@@ -52,9 +52,9 @@
 
 ## Phase 5: Router & Wiring
 
-- [ ] 5.1 Create `src/router/index.ts` — define routes: `/` → HomeView, `/section/:type` → SectionView, `/player/:id` → PlayerView
-- [ ] 5.2 Modify `src/main.ts` — register Router, Pinia
-- [ ] 5.3 Modify `src/App.vue` — RouterView + SearchBar header + GenreFilter
+- [x] 5.1 Create `src/router/index.ts` — define routes: `/` → HomeView, `/section/:type` → SectionView, `/player/:id` → PlayerView
+- [x] 5.2 Modify `src/main.ts` — register Router
+- [x] 5.3 Modify `src/App.vue` — RouterView + SearchBar header + GenreFilter
 
 ## Phase 6: Configuration
 
