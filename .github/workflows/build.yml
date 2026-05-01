@@ -28,9 +28,12 @@ jobs:
           cache: 'npm'
 
       - name: Setup Rust
-        uses: dtolnay/rustup@stable
+        uses: actions-rs/toolchain@v1
         with:
-          targets: ${{ matrix.rust_target }}
+          toolchain: stable
+          target: ${{ matrix.rust_target }}
+          override: true
+          profile: minimal
 
       - name: Install dependencies (Windows)
         run: |
