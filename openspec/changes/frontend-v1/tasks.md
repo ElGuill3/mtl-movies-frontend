@@ -10,30 +10,30 @@
 ## Phase 2: Core Components (TDD)
 
 ### MediaCard
-- [ ] 2.1 RED: Write `MediaCard.test.ts` — renders poster, title, year, rating; click navigates to /player/:id
-- [ ] 2.2 GREEN: Create `src/components/MediaCard.vue` — poster image, title, year, rating badge, genre pills
-- [ ] 2.3 REFACTOR: Add placeholder logic when poster_url is null
+- [x] 2.1 RED: Write `MediaCard.test.ts` — renders poster, title, year, rating; click navigates to /player/:id
+- [x] 2.2 GREEN: Create `src/components/MediaCard.vue` — poster image, title, year, rating badge, genre pills
+- [x] 2.3 REFACTOR: Add placeholder logic when poster_url is null
 
 ### SkeletonCard
-- [ ] 2.4 Create `src/components/SkeletonCard.vue` — animated loading placeholder matching MediaCard dimensions
+- [x] 2.4 Create `src/components/SkeletonCard.vue` — animated loading placeholder matching MediaCard dimensions
 
 ### MediaRow
-- [ ] 2.5 Create `src/components/MediaRow.vue` — section header "View All" link + horizontal scroll of MediaCards
+- [x] 2.5 Create `src/components/MediaRow.vue` — section header "View All" link + horizontal scroll of MediaCards
 
 ### SearchBar
-- [ ] 2.6 RED: Write `SearchBar.test.ts` — emits search on input after 300ms debounce
-- [ ] 2.7 GREEN: Create `src/components/SearchBar.vue` — input with debounce using useDebounce
-- [ ] 2.8 REFACTOR: Add clear button when input has value
+- [x] 2.6 RED: Write `SearchBar.test.ts` — emits search on input after 300ms debounce
+- [x] 2.7 GREEN: Create `src/components/SearchBar.vue` — input with debounce using useDebounce
+- [x] 2.8 REFACTOR: Add clear button when input has value
 
 ### GenreFilter
-- [ ] 2.9 RED: Write `GenreFilter.test.ts` — emits genre-id on selection
-- [ ] 2.10 GREEN: Create `src/components/GenreFilter.vue` — dropdown with genre list prop
-- [ ] 2.11 REFACTOR: Add "All Genres" option at top
+- [x] 2.9 RED: Write `GenreFilter.test.ts` — emits genre-id on selection
+- [x] 2.10 GREEN: Create `src/components/GenreFilter.vue` — dropdown with genre list prop
+- [x] 2.11 REFACTOR: Add "All Genres" option at top
 
 ### VideoPlayer
-- [ ] 2.12 RED: Write `VideoPlayer.test.ts` — renders Video.js instance; play/pause events
-- [ ] 2.13 GREEN: Create `src/components/VideoPlayer.vue` — Video.js wrapper with controls
-- [ ] 2.14 REFACTOR: Add keyboard shortcuts (Space, arrows, F, M)
+- [x] 2.12 RED: Write `VideoPlayer.test.ts` — renders Video.js instance; play/pause events
+- [x] 2.13 GREEN: Create `src/components/VideoPlayer.vue` — Video.js wrapper with controls
+- [x] 2.14 REFACTOR: Add keyboard shortcuts (Space, arrows, F, M)
 
 ## Phase 3: Composables
 
