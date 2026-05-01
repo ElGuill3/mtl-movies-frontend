@@ -1,0 +1,48 @@
+schema: spec-driven
+
+context: |
+  Tech stack: Vue 3 + TypeScript + Vite + Tauri 2.x (Rust backend)
+  Architecture: SPA desktop app with Chi router backend
+  Testing: vitest (not yet configured), vue-tsc for type checking
+  Style: TBD (ESLint + Prettier to be configured)
+
+strict_tdd: false
+
+rules:
+  proposal:
+    - Include rollback plan for risky changes
+    - Identify affected modules/packages
+  specs:
+    - Use Given/When/Then format for scenarios
+    - Use RFC 2119 keywords (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Include sequence diagrams for complex flows
+    - Document architecture decisions with rationale
+  tasks:
+    - Group tasks by phase (infrastructure, implementation, testing)
+    - Use hierarchical numbering (1.1, 1.2, etc.)
+    - Keep tasks small enough to complete in one session
+  apply:
+    - Follow existing code patterns and conventions
+    - Load relevant coding skills for the project stack
+  verify:
+    - Run tests if test infrastructure exists
+    - Compare implementation against every spec scenario
+  archive:
+    - Warn before merging destructive deltas (large removals)
+
+testing:
+  runner:
+    command: "npm run test"
+    framework: "vitest (not configured)"
+  layers:
+    unit: available
+    integration: not_installed
+    e2e: not_installed
+  coverage:
+    available: false
+    command: "—"
+  quality:
+    linter: not_configured
+    type_checker: vue-tsc
+    formatter: not_configured
