@@ -41,14 +41,14 @@
 - [x] 3.2 GREEN: Create `src/composables/useMediaApi.ts` — fetches movies/series/anime by type with loading/error state
 - [x] 3.3 GREEN: Create `src/composables/usePlayer.ts` — playing, currentTime, duration, volume, muted state
 
-## Phase 4: Views
+## Phase 4: Views (TDD)
 
-- [ ] 4.1 RED: Write `HomeView.test.ts` — renders 3 MediaRows; each loads correct type
-- [ ] 4.2 GREEN: Create `src/views/HomeView.vue` — 3 MediaRows (movies, series, anime)
-- [ ] 4.3 RED: Write `SectionView.test.ts` — receives type param; renders grid filtered by type
-- [ ] 4.4 GREEN: Create `src/views/SectionView.vue` — full grid with back button; SearchBar + GenreFilter wired
-- [ ] 4.5 RED: Write `PlayerView.test.ts` — loads media by id; renders VideoPlayer
-- [ ] 4.6 GREEN: Create `src/views/PlayerView.vue` — full-screen player with back button; keyboard nav
+- [x] 4.1 RED: Write `HomeView.test.ts` — renders 3 MediaRows; each loads correct type
+- [x] 4.2 GREEN: Create `src/views/HomeView.vue` — 3 MediaRows (movies, series, anime)
+- [x] 4.3 RED: Write `SectionView.test.ts` — receives type param; renders grid filtered by type
+- [x] 4.4 GREEN: Create `src/views/SectionView.vue` — full grid with back button; SearchBar + GenreFilter wired
+- [x] 4.5 RED: Write `PlayerView.test.ts` — loads media by id; renders VideoPlayer
+- [x] 4.6 GREEN: Create `src/views/PlayerView.vue` — full-screen player with back button; keyboard nav
 
 ## Phase 5: Router & Wiring
 
